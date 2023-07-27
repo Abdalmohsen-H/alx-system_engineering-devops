@@ -4,5 +4,7 @@
 # always use - before options or it will fail
 listf=$(ls)
 for itm in $listf ; do 
-echo "$itm" | cut -d '-' -f 2 -s
+if [ -f "$itm" ] && [[ "$itm" != *.* ]] ; then
+	echo "$itm" | cut -d '-' -f 2 -s
+fi
 done
