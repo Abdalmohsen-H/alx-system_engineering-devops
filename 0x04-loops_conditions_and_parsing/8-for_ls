@@ -2,4 +2,7 @@
 # display list of ls output in the directory but delete the first part delimater is -
 #ls | cut -d '-' -f 2 -s #-d for delimter, -f for field, -s to only get items with specified delimeter
 # always use - before options or it will fail
-ls > listf; for i in listf ; do cut -d '-' -f 2 -s "$i"; done; rm listf
+listf=$(ls)
+for itm in $listf ; do 
+echo "$itm" | cut -d '-' -f 2 -s
+done;
