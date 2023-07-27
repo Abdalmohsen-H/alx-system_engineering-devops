@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # This is a bash script to print "Best School" 10 times :)
+# shellcheck disable=SC2034
 for i in {1..10}; do echo "Best School"; done
 # I could also use for (( i = 1; i <= 10 ; i++ ))
