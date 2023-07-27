@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This is a bash script to print "Best School" 10 times :) using while
+i=1
+until (( "$i" > 10 )); do echo "Best School"; ((i++)); done
+#or the below line
+#also those are valid increment (( i+=1 )), (( i = i+1 )) or using let
+# see Example 8-2. Using Arithmetic Operations
+# https://tldp.org/LDP/abs/html/ops.html
