@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This is a bash script to print "Best School" 10 times :) using while
+i=1
+while (( "$i" <= 10 )); do echo "Best School"
+# important : use spaces in square brackets
+if [ "$i" -eq 9 ]; then
+	echo "Hi"
+fi
+((i++)); done
+# if [ "$i" = 9 ] also does the same
+#or the below line
+#also those are valid increment (( i+=1 )), (( i = i+1 )) or using let
+# see Example 8-2. Using Arithmetic Operations
+# https://tldp.org/LDP/abs/html/ops.html
