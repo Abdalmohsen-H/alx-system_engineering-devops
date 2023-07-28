@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# advanced task, Author A.hesham for Apache log files show IP and HTTP status code.
+awk '{print $1 " " $9}' apache-access.log
+#task 102
