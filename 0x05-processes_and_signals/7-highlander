@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# print phrease for "infinity" with applying sleep command , A. Hesham
+#also when get SIGTERM display another phrase
+
+while true #loop for infinity
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I am invincible!!!"' SIGTERM 
+done
+# I could also create a function to handle signals that ecxept arguments to be handled using "case"
+
+
