@@ -10,4 +10,14 @@ do
 done
 # I could also create a function to handle signals that ecxept arguments to be handled using "case"
 
+# Define a function to handle the signals
+#handle_signal() {
+#    case $1 in
+#        2)  echo "Script received SIGINT (Ctrl+C)" ;;
+#       15) echo "Script received SIGTERM" ;;
+#   esac
+#}
 
+# Trap signals and call the handle_signal function
+#trap 'handle_signal 2' SIGINT
+#trap 'handle_signal 15' SIGTERM
