@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# best method to display bash ID or any process info is to use pgrep
+# pgrep [option] [word or pattern to look for]
+pgrep -l bash
+# -l searches on process names -> for pattern or word "bash" in this example
