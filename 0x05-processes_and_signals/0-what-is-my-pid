@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# show current bash script's  PID using this bash script, M. Hesham
+echo $$
