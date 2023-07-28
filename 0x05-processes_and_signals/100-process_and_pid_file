@@ -2,7 +2,7 @@
 # a file that do some opertions in sequence ,creats , file , append PID  of this script to it on creation
 # handle some signals
 
-echo "$$" > /var/run/myscript.pid # create a file that contin this bash script's ID
+echo "$$" > /var/run/myscript.pid # create a file that contains this bash script's ID
 
 killfunc(){
 	rm /var/run/myscript.pid
