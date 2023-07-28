@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # stop "kill" a running process without using kill or killall commands , A. Hesham
-pgrep --full '4-to_infinity_and_beyond' | pkill
+pkill --full '4-to_infinity_and_beyond'
+#or
+#pkill -f '4-to_infinity_and_beyond'
 # here I used pkill command instead
-# but first i used pgrep to find the pattern and send it using pipe "|" to pkill
+# another way but didn't pass all checks
+#pgrep --full '4-to_infinity_and_beyond' | pkill
+#first i used pgrep to find the pattern and send it using pipe "|" to pkill
