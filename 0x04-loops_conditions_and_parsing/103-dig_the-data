@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#get more info from log file with specific format for task 103
+awk '{print $1 " " $9}' apa*cess.log | sort | uniq -c | sort -rn
+# Autthor : A. hesham
