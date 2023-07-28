@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#task 101 put fields in paragraph 
+#more descriptive : while IFS=':' read -r username password uid gid info home shell; do
+while IFS=: read -r usrnom pswd usrid grpid inf homedir cmd_shell
+do
+    echo "The user $usrnom is part of the $grpid gang, lives in $homedir and rides $cmd_shell."\
+    "$usrid's place is protected by the passcode $pswd,"\
+    "more info about the user here: $inf"
+# Autthor : A. hesham
+done < "/etc/passwd"
