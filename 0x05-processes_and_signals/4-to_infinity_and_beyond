@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# print phrease for "infinity" with applying sleep command , A. Hesham
+while true #loop for infinity
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
