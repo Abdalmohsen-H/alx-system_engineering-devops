@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # bash scri[t displays a list of all runing process with specific requirements for task 1 , A. Hesham
 ps -uxf
+#-f to Show process hierarchy, -u show user orianted format, x show all process even if proceess doesn't have tty(controlling terminal)

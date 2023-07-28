@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# display bash ID based on previous tasks
+# shellcheck disable=SC2009
+ps -uxf | grep "bash"
