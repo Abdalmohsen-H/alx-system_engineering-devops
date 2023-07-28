@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# bash scri[t displays a list of all runing process with specific requirements for task 1 , A. Hesham
+ps -uxf
