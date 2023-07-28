@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # stop "kill" a running process prints phrease for "infinity" use kill command with -f ( --full ) option , A. Hesham
 kill "$(pgrep --full 4-to_infinity_and**)"
+# this aslo will work
+#kill "$(pgrep -f 4-to_infinity_and**)"
+# --full or -f option used to find given search pattern in -> command line including arguments, not just the process name
