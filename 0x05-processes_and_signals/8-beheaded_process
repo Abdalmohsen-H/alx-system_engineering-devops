@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kill process highlander from task 7 , this code for task 8 , A.Hesham
+pkill -f '7-hig*'
