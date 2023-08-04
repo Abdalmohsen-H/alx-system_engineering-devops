@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # A. Hesham script that Listens on port 98 on localhost
 nc -l 98
-# task 100
+# task 100 , this could be useful to test network between servers or firewall by listen to port on one side and sending from the other side then watch and test
