@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#task 1 A. Hesham
+ifconfig | grep "inet addr" | awk '{print $2}' | cut -d':' -f2
+#done
