@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 #task 1 A. Hesham
+# show all active IPv4 IPs on the machine that running this script
 ifconfig | grep "inet addr" | awk '{print $2}' | cut -d':' -f2
-#done
+#run ifconfig, and get lines containing "inet addr" hose are related to IPv4 address. in this pipeline
+# then extract the 2nd field (space is the delimtere) this will extract "inet addr:xxx.xxx.xxx.xxx" string
+#then just extract IPv4 which is "xxx.xxx.xxx.xxx" part after the ":"
+
+
