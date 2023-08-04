@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#manipulate hosts file to change IPs of localhost and face book
+cp /etc/hosts ~/tmphosts #copy hosts to tmp hosts
+sed -i s/127.0.0.1/127.0.0.2/ ~/tmphosts # replace IP for local host
+#change IP for facebook
+echo -e "8.8.8.8\tfacebook.com" >> ~/tmphosts
+#overwrite original hosts file a. Hesham
+cat ~/tmphosts > /etc/hosts
