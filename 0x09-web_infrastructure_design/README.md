@@ -31,4 +31,4 @@ this infrastructure cannot scale and will not be able to handle traffic that wou
 -The load balancer is still a single point of failure
 -There is no firewall on servers
 -Traffic is unencrypted
-- No monitoring
+-No monitoring

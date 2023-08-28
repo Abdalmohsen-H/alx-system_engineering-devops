@@ -1,6 +1,6 @@
 # task 1 : 1-distributed_web_infrastructure
 
-!(https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task1.png)
+![task1](https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task1.png)
 ## Specifics about this infrastructure:
 - Haproxy load balancer is configured to default Round Robin which is active-active, Requests are distributed sequentially to each server in rotation, It ensures an even distribution of traffic among servers.
 
@@ -9,4 +9,4 @@
 -The load balancer is still a single point of failure
 -There is no firewall on servers
 -Traffic is unencrypted
-- No monitoring
+-No monitoring
