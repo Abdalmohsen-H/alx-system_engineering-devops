@@ -3,7 +3,7 @@
 # Task 0:  Simple web stack
 ![Task 0 Diagram](https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task0.png)
 
-##Specifics about this infrastructure:
+## Specifics about this infrastructure:
 DNS’s role is to translate the record of a domain name into an IP address
 server : is generally located in a data center
 , Also server can be physical or virtual, It runs lunix os and the server is communicating over a network (TCP/IP)
