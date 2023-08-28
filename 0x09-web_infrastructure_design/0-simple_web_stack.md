@@ -1,5 +1,3 @@
-# 0x09. Web infrastructure design
-
 # Task 0:  Simple web stack
 ![Task 0 Diagram](https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task0.png)
 
