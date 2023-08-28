@@ -21,7 +21,7 @@ this infrastructure cannot scale and will not be able to handle traffic that wou
 
 # task 1 : 1-distributed_web_infrastructure
 
-!(https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task1.png)
+!![task1](https://raw.githubusercontent.com/Abdalmohsen-H/alx-system_engineering-devops/master/0x09-web_infrastructure_design/task1.png)
 
 ## Specifics about this infrastructure:
 - Haproxy load balancer is configured to default Round Robin which is active-active, Requests are distributed sequentially to each server in rotation, It ensures an even distribution of traffic among servers.
