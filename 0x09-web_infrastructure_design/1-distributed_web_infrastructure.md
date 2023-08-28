@@ -7,6 +7,9 @@
 - MySQL Master-Replica cluster used replication to keep data synchronized, Master act as the Primary server performing could handle read/write operations. and the other server to act as a Replica for read operations only and provide data redundancy.
 ## Cons. of this infrastructure:
 -The load balancer is still a single point of failure
+
 -There is no firewall on servers
+
 -Traffic is unencrypted
+
 -No monitoring
