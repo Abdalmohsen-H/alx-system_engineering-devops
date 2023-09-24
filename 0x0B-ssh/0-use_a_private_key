@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Bash script to Connect to a server using SSH with a private key "~/.ssh/school" and
+# user "ubuntu"
+# you are Allowed to use single-character flags, except "-l", For
+# example this is allowed "-i" to specify identity (private key) file
+# single-character flags are command-line options that consist of a single letter or character
+# typically preceded by a hyphen (-) or double hyphen (--).
+# you don't need to handle case where private key have a passphrase protection.
+
+ssh -i "~/.ssh/school" ubuntu@server_ip_here
