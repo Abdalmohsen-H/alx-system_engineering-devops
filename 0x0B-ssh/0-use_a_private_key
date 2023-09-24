@@ -6,5 +6,5 @@
 # single-character flags are command-line options that consist of a single letter or character
 # typically preceded by a hyphen (-) or double hyphen (--).
 # you don't need to handle case where private key have a passphrase protection.
-
-ssh -i "~/.ssh/school" ubuntu
+#fake IP
+ssh -i "~/.ssh/school" ubuntu@548.8548.5485
