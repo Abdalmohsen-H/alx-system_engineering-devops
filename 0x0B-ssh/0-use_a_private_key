@@ -7,4 +7,4 @@
 # typically preceded by a hyphen (-) or double hyphen (--).
 # you don't need to handle case where private key have a passphrase protection.
 # fake ip google dns 8.8.8.8
-ssh -i "~/.ssh/school" ubuntu@54.165.176.205
+ssh ubuntu@8.8.8.8 -i ~/.ssh/school
