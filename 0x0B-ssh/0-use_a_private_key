@@ -7,4 +7,4 @@
 # typically preceded by a hyphen (-) or double hyphen (--).
 # you don't need to handle case where private key have a passphrase protection.
 
-ssh -i "~/.ssh/school" ubuntu@server_ip_here
+ssh -i "~/.ssh/school" ubuntu
