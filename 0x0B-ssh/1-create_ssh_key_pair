@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Generate an RSA type SSH key pair with a 4096-bit key length, passphrase
+# Generate an RSA type SSH key pair with a 4096-bit key length, passphrase must use capital P as "-P"
 # and save with "school" set as files names. at the "~/.ssh/" directory.
-ssh-keygen -t rsa -b 4096 -p "betty" -f "school"
+ssh-keygen -t rsa -b 4096 -P "betty" -f "school"
