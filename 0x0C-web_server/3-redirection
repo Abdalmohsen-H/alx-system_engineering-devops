@@ -18,8 +18,9 @@ apt-get -y install nginx
 # simple heelo world to test nginx is running when get request on route "/"
 echo "Hello World!" > /var/www/html/index.html
 
-newrule="server_name _;\n\trewrite ^\/redirect_me https:\/\/gr8dev.tech/ permanent;"
-sed -i "s/server_name _;/$newrule/" /etc/nginx/sites-enabled/default
+# Replace the server_name and add a rewrite rule using a different delimiter '|'
+newrule="server_name _;\\n\trewrite ^/redirect_me https://gr8dev.tech/ permanent;"
+sed -i "s|server_name _;|$newrule|" /etc/nginx/sites-enabled/default
 
 # restart nginx with new config. if it is already running, otherwise
 # start nginx with new config.
