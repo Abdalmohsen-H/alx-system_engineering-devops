@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# maybe you will need to run this script with sudo if sudo not on every line below
+# maybe you will need sudo to run this script with if not on every line below
 # bash script to install Nginx with basic conf with hello world for testing
 # also could config. UFW (uncomplicated firewall) and enable it if needed
 # while ensure that port 22 for SSH is open
@@ -9,33 +9,33 @@
 #If an undesirable situation occurs then apt-get will abort.
 
 # updates apt (Advanced Packaging Tool)
-sudo apt-get update -y
+apt-get update -y
 
 #install nginx web server
-sudo apt-get -y install nginx
+apt-get -y install nginx
 
 # simple heelo world to test nginx is running when get request on route "/"
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
 # restart nginx with new config. if it is already running, otherwise
 # start nginx with new config.
-sudo service nginx restart
+service nginx restart
 
 
 # Enable UFW
-# sudo ufw --force enable
+# ufw --force enable
 
 # allow connection on port 22 for SSH
-sudo ufw allow 22/tcp
+ufw allow 22/tcp
 
 # allow incoming traffic to port 80 used by nginx
-sudo ufw allow 80/tcp
+ufw allow 80/tcp
 
 # this also does the same as above line (don't forget capitals)
-# sudo ufw allow "Nginx HTTP"
+# ufw allow "Nginx HTTP"
 
 # show UFW rules to verify it is accurate or not
-# sudo ufw status
+# ufw status
 
-# Exit sudo mode
+# Exit mode
 exit
