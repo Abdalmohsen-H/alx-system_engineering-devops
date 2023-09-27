@@ -19,7 +19,7 @@ sudo echo "Hello World!" > /var/www/html/index.html
 
 # restart nginx with new config. if it is already running, otherwise
 # start nginx with new config.
-sudo nginx server restart
+sudo service nginx restart
 
 
 # Enable UFW
