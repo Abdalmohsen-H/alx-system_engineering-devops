@@ -13,8 +13,8 @@ exec {'Hello_world':
   provider => shell,
 }
 
-exec {'replace_config_with_sed';
-  command  => 'sed -i "s|server_name _;|server_name _;\\n\trewrite ^/redirect_me https://youtube.com permanent;|" /etc/nginx/sites-enabled/default':
+exec {'replace_config_with_sed':
+  command  => 'sh -c "sed -i \"s|server_name _;|server_name _;\\n\\trewrite ^/redirect_me https://youtube.com permanent;|\" /etc/nginx/sites-enabled/default"',
   provider => shell,
 }
 
