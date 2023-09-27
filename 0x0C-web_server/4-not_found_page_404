@@ -44,7 +44,7 @@ SERVER_CONFIG=\
 		try_files \$uri \$uri/ =404;
 	}
 
-	rewrite ^/redirect_me https://gr8dev.tech permanent;
+	rewrite ^/redirect_me https://youtube.com permanent;
 
 	error_page 404 /404.html;
 	location = /404.html {
