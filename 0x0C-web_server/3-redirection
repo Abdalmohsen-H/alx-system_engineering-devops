@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# task 3: add redirect me route for code from task 1
 # maybe you will need sudo to run this script with if not on every line below
 # bash script to install Nginx with basic conf with hello world for testing
 # also could config. UFW (uncomplicated firewall) and enable it if needed
@@ -16,6 +17,9 @@ apt-get -y install nginx
 
 # simple heelo world to test nginx is running when get request on route "/"
 echo "Hello World!" > /var/www/html/index.html
+
+newrule="server_name _;\n\trewrite ^\/redirect_me https:\/\/gr8dev.tech/ permanent;"
+sed -i "s/server_name _;/$newrule/" /etc/nginx/sites-enabled/default
 
 # restart nginx with new config. if it is already running, otherwise
 # start nginx with new config.
