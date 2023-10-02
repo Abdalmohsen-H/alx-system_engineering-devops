@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+# task 3: add redirect me route for code from task 1
+# maybe you will need sudo to run this script with if not on every line below
+# bash script to install Nginx with basic conf with hello world for testing
+# add 404 page and content for index, add custom header for load balancer testing
+# also could config. UFW (uncomplicated firewall) and enable it if needed
+# while ensure that port 22 for SSH is open
+# also port 80 for web requests
+
+# -y means assume yes on all question or choices during executing command
+#If an undesirable situation occurs then apt-get will abort.
+
+# updates apt (Advanced Packaging Tool)
+apt-get update -y
+
+#install nginx web server
+apt-get -y install nginx
+
+# simple heelo world to test nginx is running when get request on route "/"
+echo "Hello World!" > /var/www/html/index.html
+
+# 404 not found page
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+
+# nginx server configuration
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+
+	rewrite ^/redirect_me https://youtube.com permanent;
+
+    add_header X-Served-By \$hostname;
+
+	error_page 404 /404.html;
+	location = /404.html {
+		root /var/www/html/;
+		internal;
+	}
+}"
+
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+# restart nginx with new config. if it is already running, otherwise
+# start nginx with new config.
+service nginx restart
+
+
+# Enable UFW
+# ufw --force enable
+
+# allow connection on port 22 for SSH
+ufw allow 22/tcp
+
+# allow incoming traffic to port 80 used by nginx
+ufw allow 80/tcp
+
+# this also does the same as above line (don't forget capitals)
+# ufw allow "Nginx HTTP"
+
+# show UFW rules to verify it is accurate or not
+# ufw status
+
+# Exit mode
+# exit
