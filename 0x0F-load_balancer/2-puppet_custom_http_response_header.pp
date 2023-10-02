@@ -14,7 +14,7 @@ exec {'Hello_world':
 }
 
 exec {'replace_config_with_sed':
-  command  => 'sh -c "sed -i \"s|server_name _;|server_name _;\\n\\trewrite ^/redirect_me https://youtube.com permanent;\\n\\tadd_header X-Served-By \'${hostname}\';|\" /etc/nginx/sites-enabled/default"',
+  command  => 'sh -c "sed -i \"s|server_name _;|server_name _;\\n\\trewrite ^/redirect_me https://youtube.com permanent;\\n\\tadd_header X-Served-By \$hostname;|\" /etc/nginx/sites-enabled/default"',
   provider => shell,
 }
 
