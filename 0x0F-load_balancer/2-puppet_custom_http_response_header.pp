@@ -21,11 +21,9 @@ class nginx_config {
     line  => "server_name _;\n\tadd_header X-Served-By \"${hostname}\";",
     }
 
-  service { 'nginx':
-    ensure  => running,
-    enable  => true,
-    require => Package['nginx'],
-  }
+  exec {'apply_config-Nginx_then_run':
+    command => '/usr/sbin/service nginx restart',
+    }
 
 #   exec { 'ufw-allow-ssh':
 #     command => 'ufw allow 22/tcp',
