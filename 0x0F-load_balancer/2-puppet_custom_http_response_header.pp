@@ -5,23 +5,13 @@ class nginx_config {
     ensure  => installed,
   }
 
-  file { '/var/www/html/index.html':
-    ensure  => file,
-    content => 'Hello World!',
-  }
-
-  file { '/var/www/html/404.html':
-    ensure  => file,
-    content => "Ceci n'est pas une page",
-  }
-
   file_line { 'add_http_header':
     path  => '/etc/nginx/nginx.conf',
-    match => 'server_name _;',
-    line  => "server_name _;\n\tadd_header X-Served-By \"${hostname}\";",
+    match => 'http {',
+    line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
     }
 
-  exec {'apply_config-Nginx_then_run':
+  exec {'run':
     command => '/usr/sbin/service nginx restart',
     }
 
