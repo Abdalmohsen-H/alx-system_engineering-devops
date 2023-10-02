@@ -8,8 +8,8 @@ config=\
 '
 backend AHesham-backend
         balance roundrobin
-        server 376213-web-01 54.165.564.545:80 check
-        server 376213-web-02 52.204.578.514:80 check
+        server 376213-web-01 54.165.176.205:80 check
+        server 376213-web-02 52.204.94.151:80 check
 frontend AHesham-frontend
         bind *:80
         mode http
