@@ -15,13 +15,11 @@ class nginx_config {
     content => "Ceci n'est pas une page",
   }
 
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,  # Ensure that the file exists
-  content => template('nginx_config/nginx.conf.erb'),  # Set the content of the file using an ERB template
-  require => Package['nginx'],  # Require the 'nginx' package to be installed first
-  notify  => Service['nginx'],  # Notify the 'nginx' service to restart if the file changes
-}
-
+  file_line { 'add_http_header':
+    path  => '/etc/nginx/nginx.conf',
+    match => 'server_name _;',
+    line  => "server_name _;\n\tadd_header X-Served-By \"${hostname}\";",
+    }
 
   service { 'nginx':
     ensure  => running,
