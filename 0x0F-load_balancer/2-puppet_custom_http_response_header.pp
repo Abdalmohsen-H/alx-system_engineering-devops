@@ -4,21 +4,24 @@ exec {'install_nginx':
   provider => shell,
 }
 
-package {'nginx':
+-> package {'nginx':
   ensure => 'present',
 }
 
-exec {'Hello_world':
+-> exec {'Hello_world':
   command  => 'echo "Hello World!" > /var/www/html/index.html',
   provider => shell,
 }
 
-exec {'replace_config_with_sed':
-  command  => 'sh -c "sed -i \"s|server_name _;|server_name _;\\n\\trewrite ^/redirect_me https://youtube.com permanent;\\n\\tadd_header X-Served-By \\$hostname;|\" /etc/nginx/sites-enabled/default"',
-  provider => shell,
+-> file_line { 'add_header_line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "	server_name _;
+  add_header X-Served-By ${hostname};",
+  match  => '^\tserver_name _;',
 }
 
-exec {'apply_new_config':
+-> exec {'apply_new_config':
   command  => 'sudo service nginx restart',
   provider => shell,
 }
