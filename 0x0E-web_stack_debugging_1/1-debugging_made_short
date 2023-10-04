@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# advanced task, also you could use sed to replace 8080 with 80 in sites-enabled cofig but not recommended, use symbol link instead
+sudo ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo service nginx restart
+sudo pkill -o nginx
