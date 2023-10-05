@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Task0: bash script to get info about specific passed domain, that have known some subdomains
+# this task is demo how to use bash function, dig, awk, how to create subdomain (on website dashboard via A record)
+# and how to change logic based of numbers of passed arguments, always use "" around argument like "$1" not $1
+
+get_A_record() {
+    subdomain="$2"
+    dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | awk -v subdomain="$subdomain" '/.tech/ {print "The subdomain " subdomain " is a " $4 " record and points to " $5}' 
+}
+if [ "$#" == 2 ]  # usage ./filename domain subdomain
+then
+    get_A_record "$1" "$2"
+elif [ "$#" == 1 ]  # usage ./filename domain
+then
+    get_A_record "$1" "www"
+    get_A_record "$1" "lb-01"
+    get_A_record "$1" "web-01"
+    get_A_record "$1" "web-02"
+fi
