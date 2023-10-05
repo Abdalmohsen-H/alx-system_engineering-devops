@@ -2,10 +2,12 @@
 # Task0: bash script to get info about specific passed domain, that have known some subdomains
 # this task is demo how to use bash function, dig, awk, how to create subdomain (on website dashboard via A record)
 # and how to change logic based of numbers of passed arguments, always use "" around argument like "$1" not $1
+# to use a bash variable inside awk use -v option
+# /IN/ is a patttern to get lines that have records (i.e. ignore first line , also could use tail -2 as output of this dig, grep is only 2 lines
 
 get_A_record() {
     subdomain="$2"
-    dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | awk -v subdomain="$subdomain" '/.tech/ {print "The subdomain " subdomain " is a " $4 " record and points to " $5}' 
+    dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | awk -v subdomain="$subdomain" '/IN/ {print "The subdomain " subdomain " is a " $4 " record and points to " $5}' 
 }
 if [ "$#" == 2 ]  # usage ./filename domain subdomain
 then
