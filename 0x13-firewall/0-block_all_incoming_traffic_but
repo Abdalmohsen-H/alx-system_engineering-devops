@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # shell commands to enable ufw and open some ports for task 0
 sudo apt-get update
 # install ufw if not exist
