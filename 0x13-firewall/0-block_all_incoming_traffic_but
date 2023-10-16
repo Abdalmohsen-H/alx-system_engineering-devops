@@ -6,13 +6,11 @@ sudo apt-get install ufw -y
 sudo ufw default deny incoming
 # --very important-- ensure ufw always allow connections on  port 22 for ssh connection
 sudo ufw allow 22/tcp
-# force enable ufw firewall
-sudo ufw --force enable
-# --very important -- check if port 22 is open, and if not there is command below to open it
-sudo ufw status
-# --very important-- after enbling ufw always to open port 22 for ssh connection
-#sudo ufw allow 22/tcp
 # open port 443 for Https connections
 sudo allow 443/tcp
 # allow incoming traffic to port 80 used by nginx
 sudo allow 80/tcp
+# force enable ufw firewall
+sudo ufw --force enable
+# --very important -- check if port 22 is open, and if not there is command below to open it
+#sudo ufw status
