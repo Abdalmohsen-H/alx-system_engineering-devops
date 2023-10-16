@@ -1,0 +1,9 @@
+# shell commands to enable ufw and open some ports for task 0
+# force enable ufw firewall
+sudo ufw --force enable
+# --very important-- after enbling ufw always to open port 22 for ssh connection
+sudo ufw allow 22/tcp
+# open port 443 for Https connections
+sudo allow 443/tcp
+# allow incoming traffic to port 80 used by nginx
+sudo allow 80/tcp
