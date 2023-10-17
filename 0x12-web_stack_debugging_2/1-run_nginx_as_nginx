@@ -8,5 +8,8 @@ echo "user nginx;" >> /etc/nginx/nginx.conf
 # specify port
 sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 
+# kill apache2 if it is working and uses this port 8080
+pkill apache2
+
 # force nginx to restart while use nginx user
 sudo -u nginx service nginx restart
