@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 # Bash script to force Nginx to run with Nginx User, with port 8080
+
+#if it was running on my server it wasn't
 sudo service nginx stop
+
 chmod 644 /etc/nginx/nginx.conf
+
 # specify user in nginx.conf
-sudo sed -i 's/user www-data/user nginx/' /etc/nginx/nginx.conf
+sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 
 # specify port
 sudo sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 
 # kill apache2 if it is working and uses this port 8080
+# you could check using netstat to know which service/pid is using port 8080
+# sudo netstat -nlp
 pkill apache2
 
 # force nginx to restart while use nginx user
