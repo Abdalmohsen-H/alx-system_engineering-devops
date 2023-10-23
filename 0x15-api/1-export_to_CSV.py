@@ -1,4 +1,3 @@
-%%writefile 0-gather_data_from_an_API.py
 #!/usr/bin/python3
 """
 consume dummy API and get useful data
