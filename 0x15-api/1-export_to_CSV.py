@@ -20,16 +20,16 @@ def csv_func():
 
         usersurl = f'https://jsonplaceholder.typicode.com/users/{id}'
         usr_jsn_resp = requests.get(usersurl).json()
-        usr_name = str(usr_jsn_resp.get('name', None))
+        usr_name = usr_jsn_resp.get('name', None)
 
         with open(f"{id}.csv", 'w') as file:
             for task in todos_resp.json():
-                user_id = str(id)
-                task_status = str(task.get('completed', None))
-                title = str(task.get('title', None))
+                user_id = id
+                task_status = task.get('completed', None)
+                title = task.get('title', None)
                 # print(f"{user_id},{usr_name},{task_status},{title}")
                 file.write(
-                    f"{user_id},{usr_name},{task_status},{title}\n")
+                    f'"{user_id}","{usr_name}","{task_status}","{title}"\n')
 
 
 if __name__ == '__main__':
