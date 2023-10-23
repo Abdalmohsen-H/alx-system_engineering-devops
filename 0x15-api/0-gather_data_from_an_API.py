@@ -34,7 +34,7 @@ def mani_func():
             usr_name, done_tasks_contr, total_tasks
         ))
         for task in done_tasks:
-            print(f"\t{task}")
+            print(f"\t {task}")
 
 
 if __name__ == '__main__':
