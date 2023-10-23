@@ -20,7 +20,7 @@ def csv_func():
 
         usersurl = f'https://jsonplaceholder.typicode.com/users/{id}'
         usr_jsn_resp = requests.get(usersurl).json()
-        usr_name = usr_jsn_resp.get('name', None)
+        usr_name = usr_jsn_resp.get('username', None)
 
         with open(f"{id}.csv", 'w') as file:
             for task in todos_resp.json():
