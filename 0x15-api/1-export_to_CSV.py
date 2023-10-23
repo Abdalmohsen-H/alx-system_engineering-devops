@@ -1,3 +1,4 @@
+%%writefile 0-gather_data_from_an_API.py
 #!/usr/bin/python3
 """
 consume dummy API and get useful data
@@ -9,7 +10,7 @@ import requests
 from sys import argv
 
 
-def mani_func():
+def csv_func():
     """ task 0 : consume API
     """
     # Make an API call  and store the response #
@@ -27,10 +28,10 @@ def mani_func():
                 user_id = str(id)
                 task_status = str(task.get('completed', None))
                 title = str(task.get('title', None))
-                # print(f"{user_id}, {usr_name}, {task_status}, {title}")
+                # print(f"{user_id},{usr_name},{task_status},{title}")
                 file.write(
-                    f"{user_id}, {usr_name}, {task_status}, {title}\n")
+                    f"{user_id},{usr_name},{task_status},{title}\n")
 
 
 if __name__ == '__main__':
-    mani_func()
+    csv_func()
