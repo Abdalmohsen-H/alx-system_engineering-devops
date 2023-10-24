@@ -8,9 +8,9 @@ ouput saves as json format, record examlpe
     "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS
     , "username": "USERNAME"}, ... ]}
 """
+import json
 import requests
 from sys import argv
-import json
 
 
 def save_to_json():
