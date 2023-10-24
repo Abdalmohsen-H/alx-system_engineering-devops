@@ -21,11 +21,12 @@ def save_to_json():
     if len(argv) > 1:
         usr_id = argv[1]
         todosurl = f'https://jsonplaceholder.typicode.com/users/{usr_id}/todos'
-        todos_resp = requests.get(todosurl)
+        session = requests.Session()
+        todos_resp = session.get(todosurl)
 
-        usersurl = f'https://jsonplaceholder.typicode.com/users/{usr_id}'
-        usr_jsn_resp = requests.get(usersurl).json()
-        usr_name = usr_jsn_resp.get('username', None)
+        usersurl = f"https://jsonplaceholder.typicode.com/users?id={usr_id}"
+        usr_resp = session.get(usersurl)
+        usr_name = (usr_resp.json())[0].get('username', None)
 
         dictin = {usr_id: []}
 
@@ -40,8 +41,8 @@ def save_to_json():
                 "username": usr_name
             })
 
-        print(dictin)
-        with open(f"{id}.json", 'w') as file:
+        # print(dictin)
+        with open(f"{usr_id}.json", 'w') as file:
             json.dump(dictin, file)
 
 
