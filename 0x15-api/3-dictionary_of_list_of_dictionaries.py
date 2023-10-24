@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-task2: consume dummy API and get useful
+task3: consume dummy API and get useful
 data in a specific format
-ouput saves as json format, all todos for
-one user, record examlpe
+ouput saves as json format, for all users
+record examlpe
 { "USER_ID": [{"task": "TASK_TITLE", "completed":
  TASK_COMPLETED_STATUS, "username": "USERNAME"}, {
     "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS
@@ -15,26 +15,27 @@ from sys import argv
 
 
 def save_to_json():
-    """ task 2 : consume API
+    """task 3 : consume API
     then save_to_json
     """
     # Make an API call  and store the response
-    if len(argv) > 1:
-        usr_id = argv[1]
+    usersurl = f"https://jsonplaceholder.typicode.com/users/"
+    session = requests.Session()
+    usr_resp = session.get(usersurl)
+    dictin = {}
+    for usr in usr_resp.json():
+        usr_id = usr.get('id', None)
+        usr_name = usr.get('username', None)
+
         todosurl = f'https://jsonplaceholder.typicode.com/users/{usr_id}/todos'
-        session = requests.Session()
         todos_resp = session.get(todosurl)
 
-        usersurl = f"https://jsonplaceholder.typicode.com/users?id={usr_id}"
-        usr_resp = session.get(usersurl)
-        usr_name = (usr_resp.json())[0].get('username', None)
 
-        dictin = {usr_id: []}
+        dictin[usr_id] = []
 
         for task in todos_resp.json():
             task_status = task.get('completed', None)
             title = task.get('title', None)
-            # print(f"{usr_id},{usr_name},{task_status},{title}")
 
             dictin[usr_id].append({
                 "task": title,
@@ -43,7 +44,7 @@ def save_to_json():
             })
 
         # print(dictin)
-        with open(f"{usr_id}.json", 'w') as file:
+        with open("todo_all_employees.json", 'w') as file:
             json.dump(dictin, file)
 
 
