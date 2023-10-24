@@ -30,7 +30,6 @@ def save_to_json():
         todosurl = f'https://jsonplaceholder.typicode.com/users/{usr_id}/todos'
         todos_resp = session.get(todosurl)
 
-
         dictin[usr_id] = []
 
         for task in todos_resp.json():

@@ -16,10 +16,11 @@ def csv_func():
     if len(argv) > 1:
         id = argv[1]
         todosurl = f'https://jsonplaceholder.typicode.com/users/{id}/todos'
-        todos_resp = requests.get(todosurl)
+        session = requests.Session()
+        todos_resp = session.get(todosurl)
 
         usersurl = f'https://jsonplaceholder.typicode.com/users/{id}'
-        usr_jsn_resp = requests.get(usersurl).json()
+        usr_jsn_resp = session.get(usersurl).json()
         usr_name = usr_jsn_resp.get('username', None)
 
         with open(f"{id}.csv", 'w') as file:
